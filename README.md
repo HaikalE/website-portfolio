@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Muhammad Haikal Rahman Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive portfolio website built with React and Tailwind CSS.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- 🌓 Dark/Light mode toggle
+- 📱 Fully responsive design
+- 🚀 Fast and optimized performance
+- 🎨 Modern UI with smooth animations
+- 📊 Interactive project showcases
+- 📝 Dynamic content from data files
+- 🔍 SEO optimized
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React.js
+- React Router
+- Tailwind CSS
+- Framer Motion
+- React Icons
+- React Type Animation
+- React Scroll
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup and Installation
 
-### `npm test`
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/portfolio-website.git
+cd portfolio-website
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install dependencies
+```bash
+npm install
+```
 
-### `npm run build`
+3. Start the development server
+```bash
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Build for production
+```bash
+npm run build
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+portfolio-website/
+├── public/               # Static files
+├── src/                  # Source files
+│   ├── components/       # Reusable components
+│   ├── data/             # Data files
+│   ├── pages/            # Page components
+│   ├── context/          # Context providers
+│   ├── hooks/            # Custom hooks
+│   ├── utils/            # Utility functions
+│   ├── styles/           # Global styles
+│   ├── App.js            # Main App component
+│   └── index.js          # Entry point
+├── package.json          # Dependencies and scripts
+└── tailwind.config.js    # Tailwind CSS configuration
+```
 
-### `npm run eject`
+## Customization
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To customize the content of the website, edit the data files located in `src/data/`:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `resumeData.js` - Personal information, education, experience, skills, certifications
+- `projectsData.js` - Project details and screenshots
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To customize the styling, edit the Tailwind configuration in `tailwind.config.js` and global styles in `src/styles/globals.css`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Deployment
 
-## Learn More
+The website can be easily deployed to platforms like Netlify, Vercel, or GitHub Pages.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Deploying to Netlify
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Push your code to a GitHub repository
+2. Log in to Netlify
+3. Click "New site from Git"
+4. Select your repository
+5. Set build command to `npm run build`
+6. Set publish directory to `build`
+7. Click "Deploy site"
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project is licensed under the MIT License.
 
-### Analyzing the Bundle Size
+## Acknowledgements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [React Router](https://reactrouter.com/)
+- [Framer Motion](https://www.framer.com/motion/)
