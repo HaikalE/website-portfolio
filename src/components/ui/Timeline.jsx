@@ -10,7 +10,7 @@ const TimelineItem = ({
   index,
 }) => {
   return (
-    <div className={`relative pl-8 pb-8 reveal ${index % 2 === 0 ? '' : 'md:ml-8'}`}>
+    <div className={`relative pl-8 pb-8 ${index % 2 === 0 ? '' : 'md:ml-8'}`}>
       {/* Vertical line */}
       <div className="absolute left-0 top-0 h-full w-0.5 bg-gray-200 dark:bg-gray-700" />
       

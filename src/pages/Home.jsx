@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
 import Hero from '../components/sections/Hero';
 import ProjectCard from '../components/ui/ProjectCard';

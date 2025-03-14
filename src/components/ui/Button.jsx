@@ -39,9 +39,6 @@ const Button = ({
     ? 'opacity-60 cursor-not-allowed' 
     : 'cursor-pointer';
   
-  // Loading state
-  const loadingState = isLoading ? 'relative text-transparent' : '';
-  
   // Full width
   const widthClasses = fullWidth ? 'w-full' : '';
   

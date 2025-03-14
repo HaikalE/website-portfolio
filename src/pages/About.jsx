@@ -3,7 +3,7 @@ import { FiDownload, FiAward, FiBook, FiBriefcase } from 'react-icons/fi';
 import Timeline from '../components/ui/Timeline';
 import Button from '../components/ui/Button';
 import Badge from '../components/ui/Badge';
-import { personalInfo, education, experience, organizations, skills, certifications, patents } from '../data/resumeData';
+import { personalInfo, education, experience, organizations, skills, patents } from '../data/resumeData';
 
 const About = () => {
   return (
