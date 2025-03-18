@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { FiHome, FiBriefcase, FiUser, FiMail } from 'react-icons/fi';
+import { FiHome, FiBriefcase, FiUser, FiMail, FiAward } from 'react-icons/fi';
 
 const BottomNav = () => {
   const location = useLocation();
@@ -16,6 +16,11 @@ const BottomNav = () => {
       name: 'Projects',
       path: '/projects',
       icon: FiBriefcase,
+    },
+    {
+      name: 'Certs',
+      path: '/certificates',
+      icon: FiAward,
     },
     {
       name: 'About',

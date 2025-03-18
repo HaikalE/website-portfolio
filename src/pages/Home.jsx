@@ -6,11 +6,14 @@ import Timeline from '../components/ui/Timeline';
 import Badge from '../components/ui/Badge';
 import Button from '../components/ui/Button';
 import CredentialDisplay from '../components/ui/CredentialDisplay';
+import CertificateModal from '../components/ui/CertificateModal';
 import { projects } from '../data/projectsData';
 import { experience, education, skills, certifications } from '../data/resumeData';
 
 const Home = () => {
   const [isReady, setIsReady] = useState(false);
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Get featured projects
   const featuredProjects = projects
@@ -25,6 +28,17 @@ const Home = () => {
     acc[skill.category].push(skill);
     return acc;
   }, {});
+
+  // Function to open certificate modal
+  const openCertificateModal = (certificate) => {
+    setSelectedCertificate(certificate);
+    setIsModalOpen(true);
+  };
+
+  // Function to close certificate modal
+  const closeCertificateModal = () => {
+    setIsModalOpen(false);
+  };
 
   // Force component to fully render after mounting
   useEffect(() => {
@@ -152,15 +166,40 @@ const Home = () => {
             {certifications.map((cert, index) => (
               <div 
                 key={index} 
-                className="bg-white dark:bg-dark p-6 rounded-lg shadow-md reveal border-t-4 border-primary"
+                className="bg-white dark:bg-dark p-6 rounded-lg shadow-md reveal border-t-4 border-primary relative group cursor-pointer"
+                onClick={() => openCertificateModal(cert)}
               >
+                {/* Add certificate preview thumbnail */}
+                {cert.imageUrl && (
+                  <div className="mb-4 h-40 overflow-hidden rounded-md border border-gray-200 dark:border-gray-700">
+                    <img 
+                      src={cert.imageUrl} 
+                      alt={`${cert.name} thumbnail`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = `https://via.placeholder.com/400x250/3b82f6/ffffff?text=${cert.name.replace(/\s+/g, '+')}`;
+                      }}
+                    />
+                  </div>
+                )}
+                
                 <h3 className="text-lg font-bold mb-2">{cert.name}</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-2">
                   {cert.issuer} • {cert.year}
                 </p>
-                <CredentialDisplay credentialId={cert.credentialId} />
+                <CredentialDisplay 
+                  credentialId={cert.credentialId} 
+                  onViewCertificate={() => openCertificateModal(cert)}
+                />
               </div>
             ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Button to="/certificates" variant="outline">
+              View All Certificates <FiArrowRight className="ml-2" />
+            </Button>
           </div>
         </div>
       </section>
@@ -177,6 +216,13 @@ const Home = () => {
           </Button>
         </div>
       </section>
+      
+      {/* Certificate Modal */}
+      <CertificateModal 
+        isOpen={isModalOpen}
+        onClose={closeCertificateModal}
+        certificate={selectedCertificate}
+      />
     </div>
   );
 };

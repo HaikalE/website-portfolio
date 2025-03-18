@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FiLink } from 'react-icons/fi';
 
 const SimpleProjectCard = ({ project, index }) => {
   if (!project) return null;
@@ -35,12 +36,21 @@ const SimpleProjectCard = ({ project, index }) => {
           )}
         </div>
         
-        <Link 
-          to={`/projects/${project.id}`}
-          className="inline-block text-primary hover:text-primary-dark font-medium transition-colors"
-        >
-          View Details →
-        </Link>
+        <div className="flex justify-between items-center">
+          <Link 
+            to={`/projects/${project.id}`}
+            className="inline-block text-primary hover:text-primary-dark font-medium transition-colors"
+          >
+            View Details →
+          </Link>
+          
+          {project.projectUrls && project.projectUrls.length > 0 && (
+            <div className="flex items-center text-gray-500 text-sm">
+              <FiLink className="mr-1" />
+              <span>{project.projectUrls.length}</span>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

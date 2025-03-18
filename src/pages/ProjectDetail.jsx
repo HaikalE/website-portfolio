@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { FiArrowLeft, FiExternalLink, FiCalendar } from 'react-icons/fi';
+import { FiArrowLeft, FiExternalLink, FiCalendar, FiGithub, FiCode, FiPlayCircle, FiFileText } from 'react-icons/fi';
 import { projects } from '../data/projectsData';
 import Button from '../components/ui/Button';
 import Badge from '../components/ui/Badge';
+
+// Helper function to get appropriate icon for different URL types
+const getUrlIcon = (label) => {
+  const lowercaseLabel = label.toLowerCase();
+  if (lowercaseLabel.includes('github')) return FiGithub;
+  if (lowercaseLabel.includes('demo') || lowercaseLabel.includes('live')) return FiPlayCircle;
+  if (lowercaseLabel.includes('doc')) return FiFileText;
+  if (lowercaseLabel.includes('store')) return FiPlayCircle;
+  return FiExternalLink;
+};
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -68,28 +78,28 @@ const ProjectDetail = () => {
   return (
     <div className="pt-20 bg-gray-50 dark:bg-dark-light">
       {/* Header with improved text readability */}
-  <div className="w-full h-80 md:h-96 relative">
-    <img 
-      src={project.imageUrl || placeholderImage} 
-      alt={project.title}
-      className="w-full h-full object-cover"
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30 flex items-center justify-center">
-      <div className="text-center text-white max-w-3xl mx-auto px-4">
-        <h1 className="text-3xl md:text-5xl font-bold mb-4 text-shadow">{project.title}</h1>
-        <div className="flex flex-wrap justify-center gap-3">
-          {project.technologies.map((tech, index) => (
-            <span 
-              key={index}
-              className="px-3 py-1 bg-primary/70 rounded-full text-sm shadow-sm"
-            >
-              {tech}
-            </span>
-          ))}
+      <div className="w-full h-80 md:h-96 relative">
+        <img 
+          src={project.imageUrl || placeholderImage} 
+          alt={project.title}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30 flex items-center justify-center">
+          <div className="text-center text-white max-w-3xl mx-auto px-4">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-shadow">{project.title}</h1>
+            <div className="flex flex-wrap justify-center gap-3">
+              {project.technologies.map((tech, index) => (
+                <span 
+                  key={index}
+                  className="px-3 py-1 bg-primary/70 rounded-full text-sm shadow-sm"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
       
       {/* Content */}
       <div className="container mx-auto py-12">
@@ -125,6 +135,29 @@ const ProjectDetail = () => {
                 ))}
               </div>
               
+              {/* Project URLs Section */}
+              {project.projectUrls && project.projectUrls.length > 0 && (
+                <>
+                  <h2 className="text-2xl font-bold mb-4">Project Links</h2>
+                  <div className="flex flex-wrap gap-4 mb-8">
+                    {project.projectUrls.map((urlItem, index) => {
+                      const IconComponent = getUrlIcon(urlItem.label);
+                      return (
+                        <Button
+                          key={index}
+                          href={urlItem.url}
+                          variant={index === 0 ? "primary" : "outline"}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <IconComponent className="mr-2" /> {urlItem.label}
+                        </Button>
+                      );
+                    })}
+                  </div>
+                </>
+              )}
+              
               <div className="flex flex-wrap gap-4">
                 <Button 
                   onClick={() => navigate('/projects')} 
@@ -132,15 +165,6 @@ const ProjectDetail = () => {
                 >
                   <FiArrowLeft className="mr-2" /> Back to Projects
                 </Button>
-                
-                {project.projectUrl && (
-                  <Button 
-                    href={project.projectUrl} 
-                    variant="primary"
-                  >
-                    View Project <FiExternalLink className="ml-2" />
-                  </Button>
-                )}
               </div>
             </div>
           </div>

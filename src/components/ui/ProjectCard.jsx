@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiArrowRight, FiCalendar } from 'react-icons/fi';
+import { FiArrowRight, FiCalendar, FiLink } from 'react-icons/fi';
 
 const ProjectCard = ({ project, index }) => {
   // Log for debugging
@@ -68,6 +68,14 @@ const ProjectCard = ({ project, index }) => {
             </span>
           )}
         </div>
+        
+        {/* Project Links Indicator (if available) */}
+        {project.projectUrls && project.projectUrls.length > 0 && (
+          <div className="flex items-center text-white mb-3">
+            <FiLink className="mr-1" />
+            <span className="text-xs">{project.projectUrls.length} link{project.projectUrls.length !== 1 ? 's' : ''} available</span>
+          </div>
+        )}
         
         <Link 
           to={`/projects/${project.id}`} 

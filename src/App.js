@@ -10,6 +10,7 @@ import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Certificates from './pages/Certificates';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/projects" element={<Projects key="projects-page" />} />
           <Route path="/projects/:id" element={<ProjectDetail key="project-detail-page" />} />
           <Route path="/about" element={<About key="about-page" />} />
+          <Route path="/certificates" element={<Certificates key="certificates-page" />} />
           <Route path="/contact" element={<Contact key="contact-page" />} />
           <Route path="*" element={<NotFound key="not-found-page" />} />
         </Routes>
