@@ -5,6 +5,7 @@ import ProjectCard from '../components/ui/ProjectCard';
 import Timeline from '../components/ui/Timeline';
 import Badge from '../components/ui/Badge';
 import Button from '../components/ui/Button';
+import CredentialDisplay from '../components/ui/CredentialDisplay';
 import { projects } from '../data/projectsData';
 import { experience, education, skills, certifications } from '../data/resumeData';
 
@@ -157,9 +158,7 @@ const Home = () => {
                 <p className="text-gray-600 dark:text-gray-400 mb-2">
                   {cert.issuer} • {cert.year}
                 </p>
-                <p className="text-sm text-gray-500 dark:text-gray-500">
-                  Credential ID: {cert.credentialId}
-                </p>
+                <CredentialDisplay credentialId={cert.credentialId} />
               </div>
             ))}
           </div>

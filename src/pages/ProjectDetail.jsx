@@ -67,29 +67,29 @@ const ProjectDetail = () => {
 
   return (
     <div className="pt-20 bg-gray-50 dark:bg-dark-light">
-      {/* Header */}
-      <div className="w-full h-80 md:h-96 relative">
-        <img 
-          src={project.imageUrl || placeholderImage} 
-          alt={project.title}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-          <div className="text-center text-white max-w-3xl mx-auto px-4">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">{project.title}</h1>
-            <div className="flex flex-wrap justify-center gap-3">
-              {project.technologies.map((tech, index) => (
-                <span 
-                  key={index}
-                  className="px-3 py-1 bg-white/20 rounded-full text-sm"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
+      {/* Header with improved text readability */}
+  <div className="w-full h-80 md:h-96 relative">
+    <img 
+      src={project.imageUrl || placeholderImage} 
+      alt={project.title}
+      className="w-full h-full object-cover"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30 flex items-center justify-center">
+      <div className="text-center text-white max-w-3xl mx-auto px-4">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4 text-shadow">{project.title}</h1>
+        <div className="flex flex-wrap justify-center gap-3">
+          {project.technologies.map((tech, index) => (
+            <span 
+              key={index}
+              className="px-3 py-1 bg-primary/70 rounded-full text-sm shadow-sm"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
       </div>
+    </div>
+  </div>
       
       {/* Content */}
       <div className="container mx-auto py-12">

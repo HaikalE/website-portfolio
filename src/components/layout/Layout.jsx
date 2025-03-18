@@ -2,14 +2,18 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import BottomNav from './BottomNav';
 
 const Layout = ({ children }) => {
   const location = useLocation();
 
   // Scroll to top on route change and force refresh DOM
   useEffect(() => {
-    // Scroll to top
-    window.scrollTo(0, 0);
+    // Scroll to top with smooth behavior on mobile
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
     
     // Force a reflow/repaint (can help with rendering issues)
     document.body.style.display = 'none';
@@ -38,9 +42,11 @@ const Layout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow pt-16">
+      <main className="flex-grow pt-16 md:pt-20 pb-20 md:pb-0">
         {children}
       </main>
+      {/* Show bottom navigation on mobile only */}
+      <BottomNav />
       <Footer />
     </div>
   );

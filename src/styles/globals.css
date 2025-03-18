@@ -117,13 +117,18 @@
   transform: translateX(1.5rem);
 }
 
-/* Project card hover effects */
+/* Text shadow for better readability */
+.text-shadow {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Project card hover effects - Updated for better readability */
 .project-card .project-overlay {
-  @apply absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity duration-300;
+  @apply absolute inset-0 bg-gradient-to-t from-black/90 to-transparent/60 opacity-0 transition-opacity duration-300;
 }
 
 .project-card:hover .project-overlay {
-  @apply opacity-100;
+  @apply opacity-80;
 }
 
 .project-card .project-content {
@@ -132,4 +137,142 @@
 
 .project-card:hover .project-content {
   @apply translate-y-0;
+}
+
+/* Mobile optimizations */
+@layer utilities {
+  .tap-highlight-transparent {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  .user-select-none {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Initial visibility for mobile content */
+@media (max-width: 768px) {
+  .reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optimized project card hover effects for mobile */
+@media (max-width: 768px) {
+  .project-card .project-content {
+    transform: translateY(0);
+  }
+  
+  .project-card:active .project-overlay {
+    opacity: 0.8;
+  }
+}
+
+/* Fix for sticky mobile header */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+/* Improved touch area for interactive elements */
+.touch-target {
+  position: relative;
+}
+
+.touch-target::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  z-index: -1;
+}
+
+/* Mobile-friendly bottom navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(229, 231, 235, 0.5);
+  padding: 0.5rem 0;
+  z-index: 40;
+}
+
+.dark .bottom-nav {
+  background-color: rgba(17, 24, 39, 0.9);
+  border-top: 1px solid rgba(55, 65, 81, 0.5);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  color: #6B7280;
+}
+
+.dark .nav-item {
+  color: #9CA3AF;
+}
+
+.nav-item.active {
+  color: #3B82F6;
+}
+
+.nav-item svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.nav-item span {
+  font-size: 0.75rem;
+}
+
+/* Mobile optimized form elements */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+textarea {
+  font-size: 16px !important; /* Prevents iOS zoom on focus */
+}
+
+/* Enhanced mobile animations */
+@keyframes fadeUpIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up-in {
+  animation: fadeUpIn 0.5s ease forwards;
 }
