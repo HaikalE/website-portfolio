@@ -33,10 +33,10 @@ const Hero = () => {
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-center lg:text-left">
-              <span className="block">Hi, I'm</span> 
-              <span className="text-primary">{personalInfo.name.split(' ')[0]}</span>
-            </h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-center lg:text-left tracking-tight">
+  <span className="block">Hi, I'm</span> 
+  <span className="text-primary">{personalInfo.name.split(' ')[0]}</span>
+</h1>
             
             <h2 className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-6 h-16 text-center lg:text-left">
               <TypeAnimation
@@ -54,9 +54,9 @@ const Hero = () => {
               />
             </h2>
             
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
-              {personalInfo.summary}
-            </p>
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left leading-relaxed font-light">
+  {personalInfo.summary}
+</p>
             
             <div className="flex flex-wrap gap-4 mb-8 justify-center lg:justify-start">
               <Button to="/projects" variant="primary" size="lg" fullWidth={window.innerWidth < 480}>

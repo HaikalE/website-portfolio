@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Layout
 import Layout from './components/layout/Layout';
+import FontLoader from './components/FontLoader';
 
 // Pages
 import Home from './pages/Home';
@@ -12,6 +13,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Certificates from './pages/Certificates';
 import NotFound from './pages/NotFound';
+import FontTester from './components/FontTester';
 
 function App() {
   // Initialize scroll reveal animations
@@ -41,6 +43,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <FontLoader />
       <Layout>
         <Routes>
           <Route path="/" element={<Home key="home-page" />} />
@@ -49,6 +52,7 @@ function App() {
           <Route path="/about" element={<About key="about-page" />} />
           <Route path="/certificates" element={<Certificates key="certificates-page" />} />
           <Route path="/contact" element={<Contact key="contact-page" />} />
+          <Route path="/fonts" element={<FontTester key="font-tester-page" />} />
           <Route path="*" element={<NotFound key="not-found-page" />} />
         </Routes>
       </Layout>

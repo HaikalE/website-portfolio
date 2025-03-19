@@ -1,61 +1,16 @@
-import React, { useState } from 'react';
-import { FiMail, FiPhone, FiMapPin, FiSend, FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi';
-import Button from '../components/ui/Button';
+import React from 'react';
+import { FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
 import { personalInfo } from '../data/resumeData';
+import MetaTags from '../components/MetaTags';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [submitError, setSubmitError] = useState(null);
-  
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-  
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError(null);
-    
-    // Simulate form submission
-    try {
-      // In a real application, you would send this data to your backend
-      // await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData),
-      // });
-      
-      // Simulate network request
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      setSubmitSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      });
-    } catch (error) {
-      setSubmitError('There was an error sending your message. Please try again later.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-  
   return (
     <div className="pt-20">
+      <MetaTags 
+        title="Contact" 
+        description="Get in touch with Muhammad Haikal Rahman. Find my contact information and social media profiles."
+      />
+      
       {/* Header */}
       <section className="py-24 bg-primary text-white">
         <div className="container mx-auto text-center">
@@ -66,206 +21,110 @@ const Contact = () => {
         </div>
       </section>
       
-      {/* Contact Info & Form */}
-      <section className="py-16 bg-white dark:bg-dark">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <div>
-              <h2 className="text-3xl font-bold mb-8">Contact Information</h2>
-              
-              <div className="space-y-6 mb-10">
-                <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
-                    <FiMail className="text-primary text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-1">Email</h3>
-                    <a 
-                      href={`mailto:${personalInfo.email}`} 
-                      className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
-                    >
-                      {personalInfo.email}
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
-                    <FiPhone className="text-primary text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-1">Phone</h3>
-                    <a 
-                      href={`tel:${personalInfo.phone}`} 
-                      className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
-                    >
-                      {personalInfo.phone}
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
-                    <FiMapPin className="text-primary text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-1">Location</h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      {personalInfo.location}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-bold mb-4">Connect with me</h3>
-                <div className="flex space-x-4">
-                  <a 
-                    href="https://github.com/yourusername" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full bg-gray-100 dark:bg-dark-light flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white transition-colors"
-                    aria-label="GitHub"
-                  >
-                    <FiGithub className="w-5 h-5" />
-                  </a>
-                  <a 
-                    href="https://linkedin.com/in/yourusername" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full bg-gray-100 dark:bg-dark-light flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white transition-colors"
-                    aria-label="LinkedIn"
-                  >
-                    <FiLinkedin className="w-5 h-5" />
-                  </a>
-                  <a 
-                    href="https://twitter.com/yourusername" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full bg-gray-100 dark:bg-dark-light flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white transition-colors"
-                    aria-label="Twitter"
-                  >
-                    <FiTwitter className="w-5 h-5" />
-                  </a>
-                </div>
-              </div>
+      {/* Contact Info */}
+      <section className="py-20 bg-dark text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-12 text-center">Contact Information</h2>
+            
+            <div className="space-y-8 mb-16">
+              <table className="w-full table-auto">
+                <tbody>
+                  {/* Email Row */}
+                  <tr className="align-middle">
+                    <td className="py-6 w-24 md:w-32">
+                      <div className="w-16 h-16 rounded-full bg-dark-light flex items-center justify-center flex-shrink-0 mx-auto">
+                        <FiMail className="text-primary text-2xl" />
+                      </div>
+                    </td>
+                    <td className="py-6">
+                      <h3 className="text-xl font-semibold mb-2">Email</h3>
+                      <a 
+                        href={`mailto:${personalInfo.email}`} 
+                        className="text-gray-400 hover:text-primary transition-colors text-lg"
+                      >
+                        {personalInfo.email}
+                      </a>
+                    </td>
+                  </tr>
+                  
+                  {/* Phone Row */}
+                  <tr className="align-middle">
+                    <td className="py-6 w-24 md:w-32">
+                      <div className="w-16 h-16 rounded-full bg-dark-light flex items-center justify-center flex-shrink-0 mx-auto">
+                        <FiPhone className="text-primary text-2xl" />
+                      </div>
+                    </td>
+                    <td className="py-6">
+                      <h3 className="text-xl font-semibold mb-2">Phone</h3>
+                      <a 
+                        href={`tel:${personalInfo.phone}`} 
+                        className="text-gray-400 hover:text-primary transition-colors text-lg"
+                      >
+                        {personalInfo.phone}
+                      </a>
+                    </td>
+                  </tr>
+                  
+                  {/* Location Row */}
+                  <tr className="align-middle">
+                    <td className="py-6 w-24 md:w-32">
+                      <div className="w-16 h-16 rounded-full bg-dark-light flex items-center justify-center flex-shrink-0 mx-auto">
+                        <FiMapPin className="text-primary text-2xl" />
+                      </div>
+                    </td>
+                    <td className="py-6">
+                      <h3 className="text-xl font-semibold mb-2">Location</h3>
+                      <p className="text-gray-400 text-lg">
+                        {personalInfo.location}
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             
-            {/* Contact Form */}
-            <div>
-              <h2 className="text-3xl font-bold mb-8">Send me a message</h2>
-              
-              {submitSuccess ? (
-                <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
-                  <h3 className="text-xl font-bold text-green-800 dark:text-green-400 mb-2">Message Sent!</h3>
-                  <p className="text-green-700 dark:text-green-500 mb-4">
-                    Thank you for reaching out. I'll get back to you as soon as possible.
-                  </p>
-                  <Button 
-                    onClick={() => setSubmitSuccess(false)} 
-                    variant="primary"
-                  >
-                    Send Another Message
-                  </Button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {submitError && (
-                    <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800 mb-4">
-                      {submitError}
-                    </div>
-                  )}
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        Name
-                      </label>
-                      <input 
-                        type="text" 
-                        id="name" 
-                        name="name" 
-                        value={formData.name} 
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary dark:bg-dark-lighter dark:text-white"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                        Email
-                      </label>
-                      <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        value={formData.email} 
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary dark:bg-dark-lighter dark:text-white"
-                      />
-                    </div>
+            {/* Social Media */}
+            <div className="pt-12 border-t border-gray-700">
+              <h3 className="text-2xl font-bold mb-8 text-center">Connect with me</h3>
+              <div className="flex justify-center space-x-8">
+                <a 
+                  href="https://github.com/HaikalE" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group"
+                  aria-label="GitHub"
+                >
+                  <div className="w-16 h-16 rounded-full bg-dark-light flex items-center justify-center text-gray-300 group-hover:bg-primary group-hover:text-white transition-colors">
+                    <FiGithub className="w-7 h-7" />
                   </div>
-                  
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Subject
-                    </label>
-                    <input 
-                      type="text" 
-                      id="subject" 
-                      name="subject" 
-                      value={formData.subject} 
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary dark:bg-dark-lighter dark:text-white"
-                    />
+                  <p className="mt-2 text-center text-gray-400">GitHub</p>
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/muhammad-haikal-rahman/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group"
+                  aria-label="LinkedIn"
+                >
+                  <div className="w-16 h-16 rounded-full bg-dark-light flex items-center justify-center text-gray-300 group-hover:bg-primary group-hover:text-white transition-colors">
+                    <FiLinkedin className="w-7 h-7" />
                   </div>
-                  
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Message
-                    </label>
-                    <textarea 
-                      id="message" 
-                      name="message" 
-                      rows="5" 
-                      value={formData.message} 
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary dark:bg-dark-lighter dark:text-white"
-                    ></textarea>
+                  <p className="mt-2 text-center text-gray-400">LinkedIn</p>
+                </a>
+                <a 
+                  href="https://www.instagram.com/muhammadhaikalrahman_/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group"
+                  aria-label="Instagram"
+                >
+                  <div className="w-16 h-16 rounded-full bg-dark-light flex items-center justify-center text-gray-300 group-hover:bg-primary group-hover:text-white transition-colors">
+                    <FiInstagram className="w-7 h-7" />
                   </div>
-                  
-                  <div>
-                    <Button 
-                      type="submit" 
-                      variant="primary" 
-                      size="lg" 
-                      isLoading={isSubmitting}
-                    >
-                      <FiSend className="mr-2" /> Send Message
-                    </Button>
-                  </div>
-                </form>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Map */}
-      <section className="py-0 bg-gray-50 dark:bg-dark-light">
-        <div className="h-96 w-full">
-          {/* You can replace this with an actual map component like Google Maps */}
-          <div className="w-full h-full bg-gray-200 dark:bg-dark-lighter flex items-center justify-center">
-            <div className="text-center">
-              <FiMapPin className="w-10 h-10 text-primary mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">{personalInfo.location}</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                Map placeholder - integrate with Google Maps or similar service
-              </p>
+                  <p className="mt-2 text-center text-gray-400">Instagram</p>
+                </a>
+              </div>
             </div>
           </div>
         </div>

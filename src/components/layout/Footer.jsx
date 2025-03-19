@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiInstagram, FiMail } from 'react-icons/fi';
 import { personalInfo } from '../../data/resumeData';
 
 const Footer = () => {
@@ -21,7 +21,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://github.com/yourusername" 
+                href="https://github.com/HaikalE" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
@@ -30,7 +30,7 @@ const Footer = () => {
                 <FiGithub className="w-5 h-5" />
               </a>
               <a 
-                href="https://linkedin.com/in/yourusername" 
+                href="https://www.linkedin.com/in/muhammad-haikal-rahman/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
@@ -39,13 +39,13 @@ const Footer = () => {
                 <FiLinkedin className="w-5 h-5" />
               </a>
               <a 
-                href="https://twitter.com/yourusername" 
+                href="https://www.instagram.com/muhammadhaikalrahman_/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
-                aria-label="Twitter"
+                aria-label="Instagram"
               >
-                <FiTwitter className="w-5 h-5" />
+                <FiInstagram className="w-5 h-5" />
               </a>
               <a 
                 href={`mailto:${personalInfo.email}`}
@@ -104,9 +104,6 @@ const Footer = () => {
         {/* Copyright */}
         <div className="pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-gray-600 dark:text-gray-400">
           <p>© {currentYear} Muhammad Haikal Rahman. All Rights Reserved.</p>
-          <p className="mt-2 text-sm">
-            Designed & Built with ❤️ using React & Tailwind CSS.
-          </p>
         </div>
       </div>
     </footer>
