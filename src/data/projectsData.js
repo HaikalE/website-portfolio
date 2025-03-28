@@ -176,4 +176,45 @@ export const projects = [
     category: ["Web", "Full Stack"],
     featured: false,
   },
+  // YouTube Data Engineering Project
+{
+  id: 12,
+  title: "YouTube Trending Videos Data Engineering Project",
+  date: "Mar 2025",
+  description: "A comprehensive data engineering solution for extracting, processing, analyzing, and visualizing YouTube trending videos data with automated workflows and insightful analytics.",
+  features: [
+    "End-to-End ETL Pipeline: Extract data from YouTube API, transform it to derive useful metrics, and load it into PostgreSQL and Amazon S3",
+    "Fully Automated Workflow: Apache Airflow DAGs for scheduled data collection and processing",
+    "Advanced Video Analytics: Identify trends, patterns, and engagement metrics across categories",
+    "Interactive Dashboard: Visualize data with Plotly Dash with filtering and exploration capabilities",
+  ],
+  technologies: ["Python", "Airflow", "Dash", "PostgreSQL", "Amazon S3", "Power BI"],
+  imageUrl: "/assets/images/projects/youtube-data-engineering.jpg",
+  projectUrls: [
+    { label: "GitHub", url: "https://github.com/HaikalE/youtube-data-engineering" }
+  ],
+  category: ["Data Engineering", "Python", "Analytics"],
+  featured: true,
+},
+
+// Chess Analyzer Project
+{
+  id: 13,
+  title: "ChessAnalyzer",
+  date: "Mar 2025",
+  description: "Advanced chess game analysis platform powered by Stockfish engine for professional-level evaluation and improvement suggestions.",
+  features: [
+    "Interactive Chess Board: Visual arrows showing engine recommendations, move navigation and board flip options",
+    "Deep Engine Analysis: Stockfish integration with multiple evaluation lines, customizable analysis depth (14-20 ply)",
+    "Smart Move Classification: AI-powered move quality ratings: Brilliant, Great, Best, Excellent, Good, Inaccuracy, Mistake, Blunder",
+    "Comprehensive Statistics: Accuracy percentage for both players, game flow visualization with evaluation graph, summary of move classifications",
+  ],
+  technologies: ["React", "Chess.js", "TailwindCSS", "Stockfish", "Canvas API", "Web Workers"],
+  imageUrl: "/assets/images/projects/chess-analyzer.jpg",
+  projectUrls: [
+    { label: "GitHub", url: "https://github.com/HaikalE/React-Chess-Analyze" }
+  ],
+  category: ["Web", "AI", "Game Analysis"],
+  featured: true,
+}
 ];
